@@ -68,7 +68,7 @@ export function DepartmentSelection() {
             updateActiveSelection(draft);
             navigate('/upload');
           }}
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0D9488] hover:bg-[#0f766e] text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#0C2340] hover:bg-[#163B68] text-white text-sm font-medium rounded transition-colors whitespace-nowrap shrink-0 cursor-pointer"
         >
           <span>{t('actionUploadNew')}</span>
           <ArrowRight className="w-4 h-4" />
@@ -76,7 +76,7 @@ export function DepartmentSelection() {
       </div>
 
       {/* Cascading Department & Location Form */}
-      <section className="bg-white border border-slate-200 rounded-xl p-6">
+      <section className="bg-white border border-slate-300 rounded-md p-6">
         <DepartmentLocationSelector
           value={draft}
           onChange={(next) => {
@@ -89,13 +89,13 @@ export function DepartmentSelection() {
       </section>
 
       {/* Offline Karnataka Administrative Directory Explorer */}
-      <section className="bg-white border border-slate-200 rounded-xl overflow-hidden">
-        <div className="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <section className="bg-white border border-slate-300 rounded-md overflow-hidden">
+        <div className="px-5 py-3.5 bg-[#F8FAFC] border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h2 className="text-base font-display font-semibold text-slate-900">
+            <h2 className="text-sm font-display font-bold text-[#0C2340]">
               {t('directoryCountLabel')}
             </h2>
-            <p className="text-xs text-slate-500 mt-0.5 tabular-nums">
+            <p className="text-xs text-slate-600 mt-0.5 tabular-nums">
               {KARNATAKA_DISTRICTS.length} {t('district')} · {KARNATAKA_TALUKS.length} {t('taluk')} ·{' '}
               {pick('Works 100% offline', 'ಸಂಪೂರ್ಣವಾಗಿ ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ')}
             </p>
@@ -108,7 +108,7 @@ export function DepartmentSelection() {
               value={dirSearch}
               onChange={(e) => setDirSearch(e.target.value)}
               placeholder={t('searchDistrictPlaceholder')}
-              className="pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg w-72 focus:outline-none focus:border-[#173B63]"
+              className="pl-9 pr-3 py-1.5 text-xs bg-white border border-slate-300 rounded w-72 focus:outline-none focus:border-[#0C2340]"
             />
           </div>
         </div>

@@ -88,8 +88,8 @@ export function Records() {
         </div>
       </div>
 
-      <section className="bg-white border border-slate-200 rounded-xl overflow-hidden">
-        <div className="p-4 border-b border-slate-200 flex flex-wrap items-center gap-2.5">
+      <section className="bg-white border border-slate-300 rounded-md overflow-hidden">
+        <div className="p-4 bg-[#F8FAFC] border-b border-slate-200 flex flex-wrap items-center gap-2.5">
           <div className="relative flex-1 min-w-[220px]">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
@@ -97,14 +97,14 @@ export function Records() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t('searchRecordsPlaceholder')}
-              className="pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg w-full focus:outline-none focus:border-[#173B63]"
+              className="pl-9 pr-3 py-1.5 text-xs bg-white border border-slate-300 rounded w-full focus:outline-none focus:border-[#0C2340]"
             />
           </div>
 
           <select
             value={deptFilter}
             onChange={(e) => setDeptFilter(e.target.value)}
-            className="px-2.5 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-[#173B63]"
+            className="px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded focus:outline-none focus:border-[#0C2340]"
           >
             <option value="ALL">{t('allDepartments')}</option>
             {KARNATAKA_DEPARTMENTS.map((d) => (
@@ -117,7 +117,7 @@ export function Records() {
           <select
             value={districtFilter}
             onChange={(e) => setDistrictFilter(e.target.value)}
-            className="px-2.5 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-[#173B63]"
+            className="px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded focus:outline-none focus:border-[#0C2340]"
           >
             <option value="ALL">{t('allDistricts')}</option>
             {KARNATAKA_DISTRICTS.map((dist) => (
@@ -130,7 +130,7 @@ export function Records() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-2.5 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-[#173B63]"
+            className="px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded focus:outline-none focus:border-[#0C2340]"
           >
             <option value="ALL">{t('allStatuses')}</option>
             {(
@@ -152,7 +152,7 @@ export function Records() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as 'newest' | 'oldest' | 'confidence')}
-            className="px-2.5 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:border-[#173B63]"
+            className="px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded focus:outline-none focus:border-[#0C2340]"
           >
             <option value="newest">{t('sortNewest')}</option>
             <option value="oldest">{t('sortOldest')}</option>
@@ -169,22 +169,22 @@ export function Records() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 text-xs font-semibold text-slate-600">
-                  <th className="py-3 px-4 whitespace-nowrap">{t('docId')}</th>
-                  <th className="py-3 px-4 whitespace-nowrap">{t('docName')}</th>
-                  <th className="py-3 px-4 whitespace-nowrap">{t('department')}</th>
-                  <th className="py-3 px-4 whitespace-nowrap">
+                <tr className="border-b border-slate-300 bg-[#EEF2F6] text-xs font-semibold text-slate-800">
+                  <th className="py-2.5 px-4 whitespace-nowrap">{t('docId')}</th>
+                  <th className="py-2.5 px-4 whitespace-nowrap">{t('docName')}</th>
+                  <th className="py-2.5 px-4 whitespace-nowrap">{t('department')}</th>
+                  <th className="py-2.5 px-4 whitespace-nowrap">
                     {t('district')} / {t('taluk')}
                   </th>
-                  <th className="py-3 px-4 whitespace-nowrap">{t('office')}</th>
-                  <th className="py-3 px-4 whitespace-nowrap">{t('uploadDate')}</th>
-                  <th className="py-3 px-4 whitespace-nowrap">{t('status')}</th>
-                  <th className="py-3 px-4 whitespace-nowrap text-right">{t('action')}</th>
+                  <th className="py-2.5 px-4 whitespace-nowrap">{t('office')}</th>
+                  <th className="py-2.5 px-4 whitespace-nowrap">{t('uploadDate')}</th>
+                  <th className="py-2.5 px-4 whitespace-nowrap">{t('status')}</th>
+                  <th className="py-2.5 px-4 whitespace-nowrap text-right">{t('action')}</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-xs">
+              <tbody className="divide-y divide-slate-200 text-xs">
                 {filteredDocs.map((doc) => (
-                  <tr key={doc.id} className="hover:bg-slate-50/70">
+                  <tr key={doc.id} className="even:bg-slate-50/60 hover:bg-blue-50/40">
                     <td className="py-3 px-4 font-mono tabular-nums text-slate-700 whitespace-nowrap">
                       {doc.id}
                     </td>

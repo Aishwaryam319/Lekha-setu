@@ -99,11 +99,11 @@ export function SearchableSelect({
         disabled={disabled}
         onClick={() => !disabled && setOpen((o) => !o)}
         aria-expanded={open}
-        className={`w-full flex items-center justify-between gap-2 px-3.5 py-2.5 text-left rounded-lg border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#173B63] ${
+        className={`w-full flex items-center justify-between gap-2 px-3 py-2 text-left rounded border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D2647] ${
           disabled
-            ? 'bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed'
+            ? 'bg-slate-100 border-slate-300 text-slate-400 cursor-not-allowed'
             : open
-              ? 'bg-white border-[#173B63] text-slate-900'
+              ? 'bg-white border-[#0D2647] text-slate-900'
               : 'bg-white border-slate-300 text-slate-900 hover:border-slate-400'
         }`}
       >
@@ -135,8 +135,8 @@ export function SearchableSelect({
       </button>
 
       {open && !disabled && (
-        <div className="absolute z-40 mt-1.5 w-full bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
-          <div className="p-2 border-b border-slate-200 bg-slate-50">
+        <div className="absolute z-40 mt-1 w-full bg-white border border-slate-300 rounded-md shadow-md overflow-hidden">
+          <div className="p-2 border-b border-slate-300 bg-[#F1F5F9]">
             <div className="relative">
               <Search className="w-4 h-4 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input

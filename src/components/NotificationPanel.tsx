@@ -27,8 +27,8 @@ export function NotificationPanel({ onClose }: NotificationPanelProps) {
   };
 
   return (
-    <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white border border-slate-200 rounded-xl shadow-xl z-50 overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 bg-slate-50">
+    <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white border border-slate-300 rounded-md shadow-md z-50 overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-300 bg-[#F1F5F9]">
         <h3 className="text-sm font-semibold text-slate-900">{t('notifications')}</h3>
         <div className="flex items-center gap-3">
           {notifications.length > 0 && (

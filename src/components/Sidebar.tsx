@@ -34,10 +34,14 @@ interface NavItem {
   badgeCount?: number;
 }
 
+export const KARNATAKA_LOGO_URL =
+  '/assets/aistudio/AdobeExpressPhotos_7d9301e4c6d743bcae7e9a579044405d_CopyEdited_31ac62a6.png';
+
 export function Sidebar({ mobileOpen, onCloseMobile }: SidebarProps) {
   const { t, pick } = useLanguage();
   const { preferences, updatePreferences, stats } = useDocuments();
   const collapsed = preferences.sidebarCollapsed;
+  const [avatarFailed, setAvatarFailed] = React.useState(false);
 
   const navItems: NavItem[] = [
     { to: '/', labelKey: 'navDashboard', icon: <LayoutDashboard className="w-4 h-4 shrink-0" /> },
@@ -70,51 +74,66 @@ export function Sidebar({ mobileOpen, onCloseMobile }: SidebarProps) {
     { to: '/help', labelKey: 'navHelp', icon: <HelpCircle className="w-4 h-4 shrink-0" /> },
   ];
 
+  const initials = preferences.officerProfile.name
+    .split(' ')
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+
   const renderSidebarContent = (isMobile: boolean) => (
-    <div className="flex flex-col h-full bg-[#123254] text-white select-none">
-      {/* Official Karnataka Government Top Corner Logo */}
-      <div className="h-16 px-3.5 flex items-center justify-between border-b border-white/10 shrink-0">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <img
-            src="/karnataka-emblem.svg"
-            alt="Government of Karnataka Emblem"
-            className="w-9 h-9 shrink-0"
-          />
-          {(!collapsed || isMobile) && (
-            <div className="min-w-0 leading-tight">
-              <div className="text-[10px] font-semibold text-amber-300 tracking-wide truncate">
-                {pick('GOVT. OF KARNATAKA', 'ಕರ್ನಾಟಕ ಸರ್ಕಾರ')}
+    <div className="flex flex-col h-full bg-[#0C2340] text-white border-r border-[#08192E] select-none">
+      {/* Top-Left Government of Karnataka Logo + LEKHASETU Brand */}
+      <div className="px-3.5 pt-3.5 pb-3 border-b border-white/15 shrink-0">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <img
+              src={KARNATAKA_LOGO_URL}
+              alt="Government of Karnataka Logo"
+              className="w-10 h-10 rounded-full bg-white p-0.5 object-contain shrink-0 border border-[#EAB308]/60"
+            />
+            {(!collapsed || isMobile) && (
+              <div className="min-w-0 leading-tight">
+                <div className="text-[11px] font-medium text-[#FDE047] truncate">
+                  {pick('Government of Karnataka', 'ಕರ್ನಾಟಕ ಸರ್ಕಾರ')}
+                </div>
+                <div className="font-display font-bold text-base tracking-tight text-white truncate">
+                  LEKHASETU
+                </div>
               </div>
-              <div className="font-display font-bold text-sm tracking-tight text-white truncate">
-                LEKHASETU
-              </div>
-            </div>
+            )}
+          </div>
+
+          {isMobile ? (
+            <button
+              type="button"
+              onClick={onCloseMobile}
+              aria-label="Close navigation"
+              className="p-1.5 rounded text-white/80 hover:bg-white/10"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => updatePreferences({ sidebarCollapsed: !collapsed })}
+              title={collapsed ? t('expandSidebar') : t('collapseSidebar')}
+              className="p-1.5 rounded text-white/75 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            >
+              {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+            </button>
           )}
         </div>
 
-        {isMobile ? (
-          <button
-            type="button"
-            onClick={onCloseMobile}
-            aria-label="Close navigation"
-            className="p-1.5 rounded-lg text-white/80 hover:bg-white/10"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => updatePreferences({ sidebarCollapsed: !collapsed })}
-            title={collapsed ? t('expandSidebar') : t('collapseSidebar')}
-            className="p-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-          >
-            {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
-          </button>
+        {(!collapsed || isMobile) && (
+          <p className="mt-2.5 text-[11px] text-slate-300 truncate">
+            {t('appTagline')}
+          </p>
         )}
       </div>
 
       {/* Navigation Links */}
-      <nav className="flex-1 overflow-y-auto py-3 px-2.5 space-y-0.5">
+      <nav className="flex-1 overflow-y-auto py-2.5 px-2 space-y-0.5">
         {navItems.map((item) => (
           <NavLink
             key={item.to}
@@ -125,27 +144,56 @@ export function Sidebar({ mobileOpen, onCloseMobile }: SidebarProps) {
             }}
             title={collapsed && !isMobile ? t(item.labelKey) : undefined}
             className={({ isActive }) =>
-              `flex items-center justify-between gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              `flex items-center justify-between gap-2.5 px-3 py-2 rounded text-[13px] font-medium transition-colors ${
                 isActive
-                  ? 'bg-[#0F766E] text-white'
-                  : 'text-slate-200 hover:bg-white/10 hover:text-white'
+                  ? 'bg-[#184172] text-white border border-white/20'
+                  : 'text-slate-200 hover:bg-white/10 hover:text-white border border-transparent'
               }`
             }
           >
-            <span className="flex items-center gap-3 min-w-0">
+            <span className="flex items-center gap-2.5 min-w-0">
               {item.icon}
               {(!collapsed || isMobile) && (
                 <span className="truncate">{t(item.labelKey)}</span>
               )}
             </span>
             {(!collapsed || isMobile) && typeof item.badgeCount === 'number' && item.badgeCount > 0 && (
-              <span className="text-xs font-mono tabular-nums text-amber-200 shrink-0">
+              <span className="text-xs font-mono tabular-nums text-slate-200 shrink-0">
                 {item.badgeCount}
               </span>
             )}
           </NavLink>
         ))}
       </nav>
+
+      {/* Bottom Officer Profile Footer */}
+      <div className="p-3 border-t border-white/15 bg-[#091C34] shrink-0">
+        <div className="flex items-center gap-2.5 min-w-0">
+          {!avatarFailed ? (
+            <img
+              src="/src/assets/images/officer_profile_avatar_1795616046589.jpg"
+              alt={preferences.officerProfile.name}
+              referrerPolicy="no-referrer"
+              onError={() => setAvatarFailed(true)}
+              className="w-8 h-8 rounded object-cover border border-white/25 shrink-0"
+            />
+          ) : (
+            <div className="w-8 h-8 rounded bg-[#184172] text-white text-xs font-semibold flex items-center justify-center shrink-0">
+              {initials || 'OF'}
+            </div>
+          )}
+          {(!collapsed || isMobile) && (
+            <div className="min-w-0 leading-tight">
+              <div className="text-xs font-semibold text-white truncate">
+                {preferences.officerProfile.name}
+              </div>
+              <div className="text-[11px] text-slate-300 truncate">
+                {preferences.officerProfile.designation}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 
@@ -153,7 +201,7 @@ export function Sidebar({ mobileOpen, onCloseMobile }: SidebarProps) {
     <>
       {/* Desktop Sidebar */}
       <aside
-        className={`hidden lg:block shrink-0 transition-all duration-200 border-r border-slate-200 no-print ${
+        className={`hidden lg:block shrink-0 transition-all duration-200 no-print ${
           collapsed ? 'w-[72px]' : 'w-[256px]'
         }`}
       >

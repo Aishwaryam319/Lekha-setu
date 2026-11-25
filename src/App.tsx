@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { NotificationProvider } from './context/NotificationContext';
@@ -26,8 +26,8 @@ function AuthenticatedWorkspace() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F3F5F8] text-slate-900">
-      {/* Subtle Karnataka State Top Hairline */}
+    <div className="min-h-screen flex flex-col bg-[#EEF1F5] text-slate-900">
+      {/* Karnataka State Top Hairline */}
       <div className="h-1 w-full flex shrink-0 no-print">
         <div className="flex-1 bg-[#EAB308]" />
         <div className="flex-1 bg-[#DC2626]" />
@@ -39,7 +39,7 @@ function AuthenticatedWorkspace() {
         <div className="flex-1 flex flex-col min-w-0">
           <Header onOpenMobileMenu={() => setMobileMenuOpen(true)} />
 
-          <main className="flex-1 p-4 sm:p-6 lg:p-7 max-w-[1440px] w-full mx-auto">
+          <main className="flex-1 p-4 sm:p-6 max-w-[1440px] w-full mx-auto">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/department" element={<DepartmentSelection />} />
@@ -59,6 +59,25 @@ function AuthenticatedWorkspace() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
+
+          <footer className="bg-white border-t border-slate-300 px-4 sm:px-6 py-3 text-[11px] text-slate-600 no-print">
+            <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>
+                Content Owned &amp; Managed by Concerned Departments, Government of Karnataka · LEKHASETU Portal
+              </span>
+              <div className="flex items-center gap-4">
+                <Link to="/department" className="hover:text-[#0C2340] hover:underline">
+                  Department Directory
+                </Link>
+                <Link to="/help" className="hover:text-[#0C2340] hover:underline">
+                  Help &amp; Guidelines
+                </Link>
+                <Link to="/settings" className="hover:text-[#0C2340] hover:underline">
+                  Portal Settings
+                </Link>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
 
