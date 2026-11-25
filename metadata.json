@@ -1,0 +1,6 @@
+{
+  "name": "LEKHASETU",
+  "description": "Offline-first bilingual (Kannada & English) government document intelligence platform for digitizing handwritten Karnataka department records.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

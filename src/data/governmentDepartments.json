@@ -1,0 +1,56 @@
+[
+  {
+    "id": "police_station",
+    "nameEn": "Police Station",
+    "nameKn": "ಪೊಲೀಸ್ ಠಾಣೆ",
+    "descriptionEn": "Karnataka State Police stations, FIR/complaint registers, and verification records.",
+    "descriptionKn": "ಕರ್ನಾಟಕ ರಾಜ್ಯ ಪೊಲೀಸ್ ಠಾಣೆಗಳು, ದೂರು ದಾಖಲೆಗಳು ಮತ್ತು ಪರಿಶೀಲನಾ ಪತ್ರಗಳು.",
+    "requiresTaluk": true,
+    "officeType": "police_station"
+  },
+  {
+    "id": "tahsildar_office",
+    "nameEn": "Tahsildar Office",
+    "nameKn": "ತಹಶೀಲ್ದಾರ್ ಕಚೇರಿ",
+    "descriptionEn": "Taluk revenue offices handling Pahani, caste/income certificates, and land petitions.",
+    "descriptionKn": "ಪಹಣಿ, ಜಾತಿ/ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ ಮತ್ತು ಭೂ ಅರ್ಜಿಗಳನ್ನು ನಿರ್ವಹಿಸುವ ತಾಲ್ಲೂಕು ಕಂದಾಯ ಕಚೇರಿಗಳು.",
+    "requiresTaluk": true,
+    "officeType": "tahsildar_office"
+  },
+  {
+    "id": "city_corporation",
+    "nameEn": "City Corporation",
+    "nameKn": "ಮಹಾನಗರ ಪಾಲಿಕೆ",
+    "descriptionEn": "Urban local bodies managing Khata extracts, property tax, and trade licenses.",
+    "descriptionKn": "ಖಾತಾ, ಆಸ್ತಿ ತೆರಿಗೆ ಮತ್ತು ವ್ಯಾಪಾರ ಪರವಾನಗಿಗಳನ್ನು ನಿರ್ವಹಿಸುವ ಮಹಾನಗರ ಪಾಲಿಕೆಗಳು.",
+    "requiresTaluk": false,
+    "officeType": "city_corporation"
+  },
+  {
+    "id": "rto",
+    "nameEn": "Regional Transport Office (RTO)",
+    "nameKn": "ಪ್ರಾದೇಶಿಕ ಸಾರಿಗೆ ಕಚೇರಿ (ಆರ್‌ಟಿಒ)",
+    "descriptionEn": "Transport offices managing vehicle registration, driving licenses, and permits.",
+    "descriptionKn": "ವಾಹನ ನೋಂದಣಿ, ಚಾಲನಾ ಪರವಾನಗಿ ಮತ್ತು ರಹದಾರಿಗಳನ್ನು ನಿರ್ವಹಿಸುವ ಸಾರಿಗೆ ಕಚೇರಿಗಳು.",
+    "requiresTaluk": false,
+    "officeType": "rto"
+  },
+  {
+    "id": "gram_panchayat",
+    "nameEn": "Gram Panchayat",
+    "nameKn": "ಗ್ರಾಮ ಪಂಚಾಯಿತಿ",
+    "descriptionEn": "Rural local self-government offices handling E-Swathu, water tax, and village petitions.",
+    "descriptionKn": "ಇ-ಸ್ವತ್ತು, ಕುಡಿಯುವ ನೀರು ಮತ್ತು ಗ್ರಾಮೀಣ ಅರ್ಜಿಗಳನ್ನು ನಿರ್ವಹಿಸುವ ಗ್ರಾಮ ಪಂಚಾಯಿತಿ ಕಚೇರಿಗಳು.",
+    "requiresTaluk": true,
+    "officeType": "gram_panchayat"
+  },
+  {
+    "id": "other",
+    "nameEn": "Other Government Departments",
+    "nameKn": "ಇತರೆ ಸರ್ಕಾರಿ ಇಲಾಖೆಗಳು",
+    "descriptionEn": "Sub-Registrar, District Treasury, Social Welfare, Education, and other Karnataka offices.",
+    "descriptionKn": "ಉಪ ನೋಂದಣಾಧಿಕಾರಿ, ಜಿಲ್ಲಾ ಖಜಾನೆ, ಸಮಾಜ ಕಲ್ಯಾಣ, ಶಿಕ್ಷಣ ಮತ್ತು ಇತರೆ ಸರ್ಕಾರಿ ಕಚೇರಿಗಳು.",
+    "requiresTaluk": false,
+    "officeType": "manual_or_list"
+  }
+]
